@@ -20,6 +20,7 @@ def resume_template():
 
 if(__name__ == "__main__"):
     app.run()
+    
 from flask import Flask, render_template_string, render_template, jsonify
 from flask import Flask, render_template, request, redirect
 from flask import json
