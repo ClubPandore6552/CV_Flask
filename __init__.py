@@ -3,7 +3,7 @@ import sqlite3
 from urllib.request import urlopen
 
 def get_db_connection():
-    conn = sqlite3.connect('/home/jarry/database.db')  # Remplacez 'database.db' par le chemin de votre base de données SQLite.
+    conn = sqlite3.connect('/home/jarry/www/flask/database.db')  # Remplacez 'database.db' par le chemin de votre base de données SQLite.
     conn.row_factory = sqlite3.Row  # Accès aux colonnes par nom.
     return conn
     
