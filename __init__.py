@@ -30,7 +30,7 @@ import sqlite3
 # Création d'une nouvelle route pour la lecture de la BDD
 @app.route("/consultation/")
 def ReadBDD():
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('/home/jarry/database.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM clients;')
     data = cursor.fetchall()
