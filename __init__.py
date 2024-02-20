@@ -32,7 +32,7 @@ import sqlite3
 def ReadBDD():
     conn = sqlite3.connect('/home/jarry/database.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM clients;')
+    cursor.execute('SELECT * FROM livres;')
     data = cursor.fetchall()
     conn.close()
     
