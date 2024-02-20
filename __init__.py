@@ -1,10 +1,12 @@
-from flask import Flask,render_template
-from flask import Flask, render_template_string, render_template, jsonify
-from flask import Flask, render_template, request, redirect
-from flask import json
-from urllib.request import urlopen
+from flask import Flask, render_template, request, redirect, jsonify, json
 import sqlite3
+from urllib.request import urlopen
 
+def get_db_connection():
+    conn = sqlite3.connect('/home/jarry/database.db')  # Remplacez 'database.db' par le chemin de votre base de données SQLite.
+    conn.row_factory = sqlite3.Row  # Accès aux colonnes par nom.
+    return conn
+    
 app = Flask(__name__) #creating flask app name
 
 @app.route('/')
@@ -26,7 +28,7 @@ def resume_template():
 # Création d'une nouvelle route pour la lecture de la BDD
 @app.route("/consultation/")
 def ReadBDD():
-    conn = sqlite3.connect('/home/jarry/database.db')
+    conn = get_db_connection()  # Utilisation de la fonction définie pour la connexion
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM livres;')
     data = cursor.fetchall()
