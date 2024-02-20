@@ -39,15 +39,3 @@ def ReadBDD():
 
 if(__name__ == "__main__"):
     app.run()
-
-# Création d'une nouvelle route pour la lecture de la BDD
-@app.route("/consultation/")
-def ReadBDD():
-    conn = sqlite3.connect('/home/jarry/database.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM livres;')
-    data = cursor.fetchall()
-    conn.close()
-    
-    # Rendre le template HTML et transmettre les données
-    return render_template('read_data.html', data=data)
